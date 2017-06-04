@@ -17,7 +17,12 @@ class DefaultController extends Controller
 
     public function mabiblioAction()
     {
-        return $this->render('LivreBundle:Jpo:Ma_Bibliotheque.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $liste_livres = $em->getRepository('LivreBundle:Livre')->findAllCustom();
+
+        return $this->render('LivreBundle:Jpo:Ma_Bibliotheque.html.twig', array(
+          'livres' => $liste_livres,
+        ));
     }
 
     public function biblioAction()

@@ -3,7 +3,7 @@
 			<br/> <br/>
 
 			<div classe="livres_ajoutes">
-				<h2> Livres disponible </h2> 
+				<h2> Livres disponible </h2>
 
 				<label for="tri"> Afficher par : </label>
 				<select id="tri">
@@ -15,7 +15,7 @@
 					<option>Date d&eacute;croissante</option>
 				</select>
 
-				<center>
+				<!-- <center>
 					<table class="tab_livre">
 						<tr>
 							<td class="td_livre">
@@ -41,7 +41,32 @@
 
 						</tr>
 					</table>
+				</center> -->
+
+				<center>
+					<table class="tab_livre">
+
+						{% if livres is not empty %}
+
+						<table class="tab_livre">
+							<tr>
+							<!-- boucle sur l'ensemble des livres de la base de données -->
+							{% for livre in livres %}
+
+								<td class="td_livre">
+									<a href=""> <img class="img_livre" src="{{ asset(livre.imageLivre.webPath) }}"> </a> <br/>
+									 {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}
+								</td>
+
+							{% endfor %}
+							</tr>
+						</table>
+
+						{% endif %}
+
+					</table>
 				</center>
+
 			</div>
 
 {% endblock %}

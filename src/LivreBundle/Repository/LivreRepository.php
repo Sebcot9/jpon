@@ -2,6 +2,8 @@
 
 namespace LivreBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * LivreRepository
  *
@@ -10,4 +12,22 @@ namespace LivreBundle\Repository;
  */
 class LivreRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function joinImage(QueryBuilder $qb) {
+        $qb
+          ->leftJoin('l.imageLivre', 'i')
+          ->addSelect('i')
+        ;
+    }
+
+    public function findAllCustom() {
+      $qb = $this->createQueryBuilder('l');
+      // Jointure sur l'image
+      $this->joinImage($qb);
+
+      return $qb
+        ->getQuery()
+        ->getResult()
+      ;
+    }
+
 }
