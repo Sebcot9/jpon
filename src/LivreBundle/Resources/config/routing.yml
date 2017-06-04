@@ -1,0 +1,11 @@
+livre_homepage:
+    path:     /
+    defaults: { _controller: LivreBundle:Default:index }
+
+livre_mabiblio:
+    path: /mabiblio
+    defaults: { _controller: LivreBundle:Default:mabiblio }
+    
+livre_propos:
+    path: /a_propos
+    defaults: { _controller: LivreBundle:Default:propos }

@@ -1,0 +1,486 @@
+body {
+     background-image:url("Images/Background-1.png");
+}
+
+
+/*****************************SmartPhone***************************************/
+/*@media screen and (min-width: 320px) and (max-width: 480px)
+{
+
+}*/
+
+/*****************************Tablette***************************************/
+/*@media screen and (min-width: 481px) and (max-width: 769px)
+{
+
+}*/
+
+/*****************************Ecran Moyen**************************************/
+@media screen /*and (min-width: 769px)*/ and (max-width: 1024px)
+{
+  /*div*/
+  .conteneur {
+    background-image:url("Images/Background-2.png");
+
+    width:95%;
+    height: 100%;
+    position:absolute;
+    margin-left: 2%;
+  }
+
+  .livres_ajoutes {
+    width: 90%
+  }
+
+  .div_apropos {
+    width: 80%;
+    margin-left: 10%;
+    background-image:url("Images/Background-1.png");
+  }
+
+  .div_fiche_livre {
+    background-image:url("Images/Background-1.png");
+      width: 70%;
+      margin-left: 15%;
+  }
+
+  .div_resume {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  /****************************************************************************/
+  /*menu*/
+  .header {
+    width: 100%;
+    background-color: #000000;
+    height: 6%;
+  }
+
+  .navigation {
+    float:left;
+    width: 100%;
+  }
+
+  .main-nav {
+    width: 100%;
+    margin-left: 2%;
+  }
+
+  .main-nav li {
+    float:left;
+    list-style-type: none;
+    width: 200px;
+    text-align: center;
+  }
+
+  .main-nav li a {
+    line-height: 32px;
+    text-decoration: none;
+    width: 200px;
+
+    color: white;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .main-nav li:hover {
+    background-color: #00B050;
+  }
+
+  .img_topnav {
+    width: 20px;
+    height: 20px;
+  }
+
+  /******************************************************************************/
+  /*formulaires*/
+  .div_form_conn {
+    height: 30%;
+    width: 40%;
+    padding-top: 10%;
+    padding-left: 30%;
+  }
+
+  .div_form_inscr {
+    padding-left: 25%;
+  }
+
+  .div_form_ajout {
+    padding-left: 25%;
+  }
+
+  .div_form_suppr {
+    padding-left: 25%;
+  }
+
+  fieldset {
+     max-width:80%;
+     border-color:  #00B050;
+     background-image:url("Images/Background-1.png");
+  }
+
+  legend {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-variant: small-caps;
+
+    font-family: Arial;
+    font-size: 16px;
+  }
+
+  label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+
+    font-family: Arial;
+    font-size: 14px;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+  }
+
+  form {
+    width: 600px;
+  }
+
+  /******************************************************************************/
+  /*table, td, tr*/
+
+  table {
+    /*border: 2px solid #00B050;*/
+    background-color: white;
+  }
+
+  .tab_livre {
+    width: 80%;
+    margin-left: 10%;
+    background-image:url("Images/Background-2.png");
+  }
+
+  .td_livre {
+    width:25%;
+    border: 2px solid #00B050;
+    background-image:url("Images/Background-1.png");
+    text-align: center;
+  }
+
+  /******************************************************************************/
+  /*textes*/
+
+  h1 {
+      color: #ED7D31;
+      font-family:"Comic Sans MS";
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  h2 {
+    color: #00B050;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h3 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h4 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  p {
+    text-align: justify;
+    font-family: Arial;
+    font-size: 12px;
+  }
+
+  .resume {
+    padding-right: 10px;
+  }
+
+  .livr_titre {
+    color: #000000;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10%
+  }
+
+  /*****************************************************************************/
+  /*images*/
+
+  .baniere {
+    width: 100%;
+  }
+
+  .img_livre {
+    width: 150px;
+    height: 200px;
+  }
+
+  .img_suppr {
+    width: 10px;
+    height: 10px;
+  }
+  /******************************************************************************/
+}
+
+
+/*****************************Grand Ecran**************************************/
+@media screen and (min-width: 1025px)
+{
+  /*div*/
+  .conteneur {
+    background-image:url("Images/Background-2.png");
+
+    width:80%;
+    height: 100%;
+    position:absolute;
+    margin-left: 10%;
+  }
+
+.livres_ajoutes {
+    width: 90%;
+  }
+
+.div_apropos {
+  width: 70%;
+  margin-left: 15%;
+  background-image:url("Images/Background-1.png");
+}
+
+.div_fiche_livre {
+  background-image:url("Images/Background-1.png");
+    width: 70%;
+    margin-left: 15%;
+}
+
+.div_resume {
+  width: 90%;
+  margin-left: 5%;
+}
+  /****************************************************************************/
+  /*menu*/
+  .header {
+    width: 100%;
+    background-color: #000000;
+    height: 6%;
+  }
+
+  .navigation {
+    float:left;
+    width: 100%;
+  }
+
+  .main-nav {
+     width: 80%;
+     margin-left: 20%;
+  }
+
+  .main-nav li {
+    float:left;
+    list-style-type: none;
+    width: 200px;
+    text-align: center;
+  }
+
+  .main-nav li a {
+    line-height: 32px;
+    text-decoration: none;
+    width: 200px;
+
+    color: white;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .main-nav li:hover {
+    background-color: #00B050;
+  }
+
+  .img_topnav {
+    width: 20px;
+    height: 20px;
+  }
+
+  /******************************************************************************/
+  /*formulaires*/
+  .div_form_conn {
+    height: 30%;
+    width: 40%;
+    padding-top: 10%;
+    padding-left: 30%;
+  }
+
+  .div_form_inscr {
+    padding-left: 35%;
+  }
+
+  .div_form_ajout {
+    padding-left: 35%;
+  }
+
+  .div_form_suppr {
+    padding-left: 35%;
+    padding-top: 5%;
+  }
+
+  fieldset {
+     max-width:80%;
+     border-color:  #00B050;
+     background-image:url("Images/Background-1.png");
+  }
+
+  legend {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-variant: small-caps;
+
+    font-family: Arial;
+    font-size: 16px;
+  }
+
+  label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+
+    font-family: Arial;
+    font-size: 14px;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+  }
+
+  form {
+    width: 600px;
+  }
+
+  input{
+    width: 55%;
+  }
+  #resume {
+    width: 55%;
+    height: 75%;
+  }
+
+  /*****************************************************************************/
+  /*table, td, tr*/
+
+  table {
+    /*border: 2px solid #00B050;*/
+    background-color: white;
+  }
+
+  .tab_livre {
+    width: 80%;
+    margin-left: 10%;
+    background-image:url("Images/Background-2.png");
+  }
+
+  .td_livre {
+    width:25%;
+    border: 2px solid #00B050;
+    background-image:url("Images/Background-1.png");
+    text-align: center;
+  }
+
+
+  /******************************************************************************/
+  /*textes*/
+
+  h1 {
+      color: #ED7D31;
+      font-family:"Comic Sans MS";
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  h2 {
+    color: #00B050;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h3 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h4 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  p {
+    text-align: center;
+    font-family: Arial;
+    font-size: 12px;
+  }
+
+  .resume {
+    padding-right: 10px;
+  }
+
+  .livr_titre {
+    color: #000000;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10%
+  }
+
+  /******************************************************************************/
+  /*images*/
+
+  .baniere {
+    width: 100%;
+  }
+
+  .img_livre {
+    width: 250px;
+    height: 350px;
+  }
+
+  .img_fiche_livre {
+    width: 250px;
+    height: 350px;
+    padding-left: 40%;
+  }
+
+  .img_suppr {
+    width: 10px;
+    height: 10px;
+  }
+  /******************************************************************************/
+}

@@ -1,0 +1,3 @@
+user_homepage:
+    path:     /id
+    defaults: { _controller: UserBundle:User:user }

@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+{% block body %}
+			<br/> <br/>
+
+			<center>
+				<div class="recherche">
+					<table class="form">
+						<form>
+							<tr> 
+								<td>
+									<label for"mail">Titre *</label>
+									<input id="mail"> </input>
+									</br> </br>
+
+									<label for="nom">Auteur *</label>
+									<input id="nom"> </input>
+									</br> </br>
+
+									<label for="prenom">Ann&eecute;e de parution *</label>
+									<input id="prenom"> </input>
+									</br> </br>
+
+									<label>Editeur *</label>
+									<input> </input>
+									</br> </br>
+
+									<label>Genre</label>
+									<input> </input>
+									</br> </br>
+									
+									<input type="submit" id="recherche" value="Rechercher">
+								</td>
+							</tr>
+						</form>
+					</table>
+				</div> <!-- fin recherche-->
+			</center>
+
+			</br> </br>
+
+			<center>
+				<div class="result">
+					<table>
+					  <tr>
+					    <th>Titre</th> <th>Auteur</th> <th>Editeur</th> <th>Parution</th> <th>Genre</th>
+					  </tr>	
+					  
+					  <tr>
+					  	<td>Les Simpson - Camping en d&eacute;lire</td> <td>MATT GROENING</td> 
+					  	<td>Jungle</td> <td>2008</td> <td>BD</td> 
+					  </tr>
+
+					  <tr>
+					  	<td>Tintin au Congo </td> <td>HERGE</td> 
+					  	<td>Casterman</td> <td>1931</td> <td>BD</td> 
+					  </tr>
+					</table>
+				</div>
+			</center>
+			
+			
+
+
+{% endblock %}

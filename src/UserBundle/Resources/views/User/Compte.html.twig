@@ -1,0 +1,58 @@
+{% extends "base.html.twig"%}
+{% block body %}
+
+			<div class="top">
+				<label for="geolocalisation"> G&eacute;olocalisation </label>
+				<select id="geolocalisation">
+					<option>On</option>
+					<option>Off</option>
+				</select>
+
+				<button id="deconnexion" value"deconnexion"> Se deconnecter </button>
+
+			</div> <!-- fin top -->
+
+				<table id="ma_biblio">
+					<h2> </h2>
+				  <tr>
+				    <th>Titre</th>
+				    <th>Auteur</th>
+				    <th>Parution</th>
+				    <th>Editeur</th>
+				    <th>Genre</th>
+				  </tr>	
+				  <tr></tr>
+				</table>
+				</br> </br>
+
+			<table class="form">
+				<form>
+					<tr> 
+						<td>
+							<label for"mail">Titre *</label>
+							<input id="mail"> </input>
+							</br> </br>
+
+							<label for="nom">Auteur *</label>
+							<input id="nom"> </input>
+							</br> </br>
+
+							<label for="prenom">Ann&eecute;e de parution *</label>
+							<input id="prenom"> </input>
+							</br> </br>
+
+							<label>Editeur *</label>
+							<input> </input>
+							</br> </br>
+
+							<label>Genre</label>
+							<input> </input>
+							</br> </br>
+
+							<input type="submit" id="ajout" value="Ajouter">
+							<input type="submit" id="supprimer" value="Supprimer">
+						</td>
+					</tr>
+				</form>
+			</table>
+{% endblock %}

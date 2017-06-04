@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}{% stylesheets 'css/style.css' %}<link rel="stylesheet" type="text/css" href={{ asset_url }}/>{% endstylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="conteneur">
+			<img class="baniere" src={{asset('Images/Baniere_02.png')}}/>
+
+			<div> <!-- Barre de navigation -->
+				<table class="topnav">
+					<tr>
+						<td id="topnav"></td>
+
+						<td id="topnav"> 
+							<img class="img_topnav" src={{asset('Images/Icones/Accueil_vert.png')}}/> 
+							<a class="active" href="/"> Accueil </a>
+						</td>
+
+						<td id="topnav"> 
+							<img class="img_topnav" src={{asset('Images/Icones/Compte_blanc.png')}}/>
+							<a class="menu" href="/user/id"> Compte </a> 
+						</td>
+
+						<td id="topnav"> 
+							<img class="img_topnav" src={{asset('Images/Icones/Bibliotheque_blanc.png')}}/>
+							<a class="menu" href="/mabiblio"> Bibliotheque </a> 
+						</td>
+
+						<td id="topnav"> 
+							<img class="img_topnav" src={{asset('Images/Icones/Question_blanc.png')}}/>
+							<a class="menu" href="/a_propos"> A propos </a> 
+						</td>
+						
+						<td id="topnav"></td>
+					</tr>	
+				</table>
+			</div> <!-- fin barre de navigation -->
+        {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
