@@ -3,9 +3,13 @@ livre_homepage:
     defaults: { _controller: LivreBundle:Default:index }
 
 livre_mabiblio:
-    path: /mabiblio
+    path: /biblio
     defaults: { _controller: LivreBundle:Default:mabiblio }
-    
+
 livre_propos:
     path: /a_propos
     defaults: { _controller: LivreBundle:Default:propos }
+
+livre_ajout:
+    path: /ajout
+    defaults: { _controller: LivreBundle:Default:ajout }

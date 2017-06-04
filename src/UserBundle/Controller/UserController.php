@@ -9,6 +9,9 @@ class UserController extends Controller
     public function userAction()
     {
         return $this->render('UserBundle:User:Compte.html.twig');
+
+
+        
     }
     public function connectionAction()
     {

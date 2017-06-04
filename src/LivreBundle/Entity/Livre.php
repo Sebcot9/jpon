@@ -3,6 +3,7 @@
 namespace LivreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Livre
@@ -42,6 +43,36 @@ class Livre
      */
     private $etat;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="editeur", type="string", length=255, nullable=true)
+     */
+    private $editeur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auteur", type="string", length=255, nullable=true)
+     */
+    private $auteur;
+
+    /**
+      * @ORM\ManyToMany(targetEntity="LivreBundle\Entity\Genre", cascade={"persist"})
+      */
+     private $genres;
+
+     /**
+     * @ORM\OneToOne(targetEntity="LivreBundle\Entity\Image", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
+     */
+     private $imageLivre;
+
+     public function __construct()
+     {
+        // default date is today's date
+        $this->genres = new ArrayCollection();
+     }
 
     /**
      * Get id
@@ -124,5 +155,110 @@ class Livre
     {
         return $this->etat;
     }
-}
 
+    /**
+     * Set editeur
+     *
+     * @param string $editeur
+     *
+     * @return Livre
+     */
+    public function setEditeur($editeur)
+    {
+        $this->editeur = $editeur;
+
+        return $this;
+    }
+
+    /**
+     * Get editeur
+     *
+     * @return string
+     */
+    public function getEditeur()
+    {
+        return $this->editeur;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param string $auteur
+     *
+     * @return Livre
+     */
+    public function setAuteur($auteur)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return string
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Add genre
+     *
+     * @param \LivreBundle\Entity\Genre $genre
+     *
+     * @return Livre
+     */
+    public function addGenre(\LivreBundle\Entity\Genre $genre)
+    {
+        $this->genres[] = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Remove genre
+     *
+     * @param \LivreBundle\Entity\Genre $genre
+     */
+    public function removeGenre(\LivreBundle\Entity\Genre $genre)
+    {
+        $this->genres->removeElement($genre);
+    }
+
+    /**
+     * Get genres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    /**
+     * Set imageLivre
+     *
+     * @param \LivreBundle\Entity\Image $imageLivre
+     *
+     * @return Livre
+     */
+    public function setImageLivre(\LivreBundle\Entity\Image $imageLivre)
+    {
+        $this->imageLivre = $imageLivre;
+
+        return $this;
+    }
+
+    /**
+     * Get imageLivre
+     *
+     * @return \LivreBundle\Entity\Image
+     */
+    public function getImageLivre()
+    {
+        return $this->imageLivre;
+    }
+}
