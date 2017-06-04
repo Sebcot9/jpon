@@ -19,7 +19,7 @@ class UserController extends Controller
     }
     public function inscriptionAction()
     {
-        return $this->render('UserBundle:Default:Inscription.html.twig');
+        return $this->render('UserBundle:User:Inscription.html.twig');
     }
 
 }
