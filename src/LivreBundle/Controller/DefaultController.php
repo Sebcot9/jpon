@@ -23,7 +23,7 @@ class DefaultController extends Controller
     
     public function livreAction()
     {
-        return $this->render('LivreBundle:Jpo:Livre.html.twig');
+         return $this->render('LivreBundle:Jpo:Livre.html.twig');
     }
     
     public function rechercheAction()
