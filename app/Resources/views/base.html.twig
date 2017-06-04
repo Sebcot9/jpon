@@ -9,36 +9,36 @@
     <body>
         <div class="conteneur">
 			<img class="baniere" src={{asset('Images/Baniere_02.png')}}/>
-
-			<div> <!-- Barre de navigation -->
-				<table class="topnav">
-					<tr>
-						<td id="topnav"></td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src={{asset('Images/Icones/Accueil_vert.png')}}/> 
-							<a class="active" href="/"> Accueil </a>
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src={{asset('Images/Icones/Compte_blanc.png')}}/>
-							<a class="menu" href="/user/id"> Compte </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src={{asset('Images/Icones/Bibliotheque_blanc.png')}}/>
-							<a class="menu" href="/mabiblio"> Bibliotheque </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src={{asset('Images/Icones/Question_blanc.png')}}/>
-							<a class="menu" href="/a_propos"> A propos </a> 
-						</td>
-						
-						<td id="topnav"></td>
-					</tr>	
-				</table>
-			</div> <!-- fin barre de navigation -->
+			<div class="header">
+		        <div class="navigation">
+		          <ul class="main-nav">
+		            <li>
+		              <img class="img_topnav" src="{{asset('Images/Icones/Accueil_blanc.png')}}">
+		              <a href="/">Accueil</a>
+		            </li>
+		            <li class='dropdown'>
+		              <img class="img_topnav" src="{{asset('Images/Icones/Compte_blanc.png')}}">
+		              <a href="/user/id">Compte</a>
+		            <li>
+		              <img class="img_topnav" src="{{asset('Images/Icones/Bibliotheque_blanc.png')}}">
+		              <a href="/biblio">Biblioth&egrave;que</a>
+		            </li>
+		            <li>
+		              <img class="img_topnav" src="{{asset('Images/Icones/Question_blanc.png')}}">
+		              <a href="/apropos">A propos</a>
+		            </li>
+                            <li>
+                            </li>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a href="{{ path('fos_user_profile_show') }}">Bonjour, {{ app.user }}</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li
+                            {% else %}
+                                <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                            {% endif %}
+		          </ul>
+		        </div>
+		     </div>
         {% block body %}{% endblock %}
         </div>
         {% block javascripts %}{% endblock %}

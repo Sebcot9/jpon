@@ -1,44 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-
-	<head>
-		<meta charset=utf-8/>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<title>Bibliotheque</title>
-	</head>
-
-	<body>
-
-		<div class="conteneur">
-			<img class="baniere" src="Images/Baniere_02.png">
-
-			<div> <!-- Barre de navigation -->
-				<table class="topnav">
-					<tr>
-						<td id="topnav"></td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Accueil_blanc.png"> 
-							<a class="menu" href="Accueil.html"> Accueil </a>
-						</td>
-
-						<td id="topnav"> <img class="img_topnav" src="Images/Icones/Compte_blanc.png"> <a class="menu" href="Compte.html"> Compte </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Bibliotheque_vert.png">
-							<a class="active" href="Bibliotheque.html"> Bibliotheque </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Question_blanc.png">
-							<a class="menu" href="A_Propos.html"> A propos </a> 
-						</td>
-						
-						<td id="topnav"></td>
-					</tr>	
-				</table>
-			</div> <!-- fin barre de navigation -->
+{% extends "base.html.twig" %}
+{% block body %}
 
 			<br/> <br/>
 
@@ -83,7 +44,4 @@
 					</table>
 				</center>
 			</div>
-
-		</div> <!-- fin conteneur-->
-	</body>
-</html>
+{% endblock %}
