@@ -21,12 +21,8 @@ security:
             pattern: ^/
             form_login:
                 check_path: fos_user_security_check
-                login_path: fos_user_security_login
+                login_path: /login
                 provider: fos_userbundle
-                use_forward: false
-                use_referer: true
-                failure_path: null
-                default_target_path: livre_homepage
             logout:
                path:    fos_user_security_logout
                target: livre_homepage
@@ -36,11 +32,11 @@ security:
             anonymous:    true
 
     access_control:
-       - { path: ^/connexion$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-       - { path: ^/inscription, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/user/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/admin/, role: ROLE_ADMIN }
-       - { path: ^/profil, role: IS_AUTHENTICATED_FULLY }
+       - { path: ^/profile, role: IS_AUTHENTICATED_FULLY }
        - { path: ^/deconnexion$, role: IS_AUTHENTICATED_FULLY }
             # activate different ways to authenticate
 

@@ -76,7 +76,10 @@ fos_user:
     from_email :
        address :  "noreply@jpo.com"
        sender_name: "No Reply"
-
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
+            
 assetic:
     debug:  '%kernel.debug%'
     use_controller: '%kernel.debug%'

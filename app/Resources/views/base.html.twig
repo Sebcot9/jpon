@@ -15,11 +15,18 @@
 		            <li>
 		              <img class="img_topnav" src="{{asset('Images/Icones/Accueil_blanc.png')}}">
 		              <a href="/">Accueil</a>
-		            </li>
-		            <li class='dropdown'>
+		            </li>    
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li class='dropdown'>
 		              <img class="img_topnav" src="{{asset('Images/Icones/Compte_blanc.png')}}">
-		              <a href="/user/id">Compte</a>
+		              <a href="/ajout">Partager</a>
 		            <li>
+                            {% else %}
+                            <li>
+                               <img class="img_topnav" src="{{asset('Images/Icones/Compte_blanc.png')}}">
+                               <a href="{{ path('fos_user_registration_register') }}">Partager</a>
+                            </li>
+                            {% endif %}
 		              <img class="img_topnav" src="{{asset('Images/Icones/Bibliotheque_blanc.png')}}">
 		              <a href="/biblio">Biblioth&egrave;que</a>
 		            </li>

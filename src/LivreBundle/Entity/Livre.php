@@ -62,6 +62,7 @@ class Livre
       */
      private $genres;
 
+     
      /**
      * @ORM\OneToOne(targetEntity="LivreBundle\Entity\Image", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)

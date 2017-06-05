@@ -26,19 +26,19 @@ class LivreType extends AbstractType
     {
         $builder
           ->add('titre', TextType::class, array(
-              'label' => 'titre : ',
+              'label' => 'Titre du livre : ',
               'required' => true,
           ))
           ->add('auteur', TextType::class, array(
-              'label' => 'auteur : ',
+              'label' => 'Auteur : ',
               'required' => false,
           ))
           ->add('editeur', TextType::class, array(
-              'label' => 'editeur : ',
+              'label' => 'Editeur : ',
               'required' => false,
           ))
           ->add('genres', EntityType::class, array(
-              'label' => 'ajouter des genres : ',
+              'label' => 'Ajouter des genres : ',
               'class'        => 'LivreBundle:Genre',
               'choice_label' => 'nomgenre',
               'multiple'     => true,

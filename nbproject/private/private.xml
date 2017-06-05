@@ -3,21 +3,61 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/config/parameters.yml</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/AppBundle/AppBundle.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/LivreBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/config/security.yml</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/Resources/views/default/index.html.twig</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/LivreBundle/Resources/views/Default/Accueil.html.twig</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/AppKernel.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/AppBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/LivreBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/UserBundle/Entity/User.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/src/UserBundle/UserBundle.php</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/config/routing.yml</file>
-            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPon/app/config/config.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Security/login_content.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Registration/email.txt.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/AppBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Registration/confirmed.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/config/services.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Profile/show.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Form/LivreType.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Repository/GenreRepository.php</file>
             <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/composer.json</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Registration/register.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/web/css/style.css</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Entity/Avis.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/config/security.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Repository/AvisRepository.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Form/RegistrationType.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Entity/User.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/config/config.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Profile/edit.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Form/GenreType.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/config/routing.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/Partage.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/AppKernel.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Repository/ImageRepository.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/User/Inscription.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/config/services.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/config/parameters.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/config/services.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Entity/Genre.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/AppBundle/AppBundle.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/User/Compte.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Default/Accueil.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/app/Resources/views/default/index.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Entity/Livre.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Entity/Adresse.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/Recherche.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/User/Connexion.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Entity/Commande.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Form/AdresseType.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/A_Propos.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/Livre.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/Bibliotheque.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Repository/LivreRepository.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Registration/check_email.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Repository/UserRepository.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Form/ImageType.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Entity/Image.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/UserBundle/UserBundle.php</file>
+            <file>file:/C:/Users/sebco/Documents/NetBeansProjects/JPOn/src/LivreBundle/Resources/views/Jpo/Ma_Bibliotheque.html.twig</file>
         </group>
     </open-files>
 </project-private>

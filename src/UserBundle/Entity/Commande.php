@@ -63,4 +63,3 @@ class Commande
         return $this->dateCommande;
     }
 }
-

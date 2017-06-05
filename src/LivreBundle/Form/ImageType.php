@@ -19,7 +19,7 @@ class ImageType extends AbstractType
     {
         $builder
           // ->add('alt', TextType::class, array('label' => 'Image actuelle', 'disabled' => true))
-          ->add('file', FileType::class , array('label' => 'ajouter une image : '))
+          ->add('file', FileType::class , array('label' => 'Ajouter une image : '))
         ;
     }
 

@@ -2,14 +2,18 @@ livre_homepage:
     path:     /
     defaults: { _controller: LivreBundle:Default:index }
 
-livre_mabiblio:
+livre_biblio:
     path: /biblio
-    defaults: { _controller: LivreBundle:Default:mabiblio }
+    defaults: { _controller: LivreBundle:Default:biblio }
 
 livre_propos:
-    path: /a_propos
+    path: /apropos
     defaults: { _controller: LivreBundle:Default:propos }
 
 livre_ajout:
     path: /ajout
     defaults: { _controller: LivreBundle:Default:ajout }
+
+livre_mabiblio:
+    path: /mabiblio
+    defaults: { _controller: LivreBundle:Default:mabiblio }

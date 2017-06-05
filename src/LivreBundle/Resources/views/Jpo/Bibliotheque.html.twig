@@ -17,29 +17,25 @@
 
 				<center>
 					<table class="tab_livre">
-						<tr>
-							<td class="td_livre">
-								<a href=""> <img class="img_livre" src="Images/Simpson-t1.jpg"> </a> <br/>
-								 Les Simpson - Camping en d&eacute;lire <br/> MATT GROENING, Jungle
-							</td>
-							<td class="td_livre">
-								<a href="Livre_HP1.html"> <img class="img_livre" src="Images/Harry_Potter_t1.jpg"> </a> <br/>
-								Harry potter &agrave; l'&eacute;cole des sorciers <br/> J-K Rowling, Galimard
-							</td>
-							<td>
-								<a href=""> <img class="img_livre" src="Images/Candide.jpg"> </a>  <br/>
-								Candide <br/> VOLTAIRE, Livre de poche
-							</td>
-							<td class="td_livre">
-								<a href=""> <img class="img_livre" src="Images/Tintin_Congo.jpg"> </a>  <br/>
-								Tintin au Congo <br/> HERGE, Casterman
-							</td>
-							<td class="td_livre">
-								<a href=""> <img class="img_livre" src="Images/Letranger.jpg">  </a> <br/>
-								L &eacute;tranger <br/> Albert Camus, Folio
-							</td>
 
-						</tr>
+						{% if livres is not empty %}
+
+						<table class="tab_livre">
+							<tr>
+							<!-- boucle sur l'ensemble des livres de la base de données -->
+							{% for livre in livres %}
+
+								<td class="td_livre">
+									<a href=""> <img class="img_livre" src="{{ asset(livre.imageLivre.webPath) }}"> </a> <br/>
+									 {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}
+								</td>
+
+							{% endfor %}
+							</tr>
+						</table>
+
+						{% endif %}
+
 					</table>
 				</center>
 			</div>
