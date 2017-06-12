@@ -26,8 +26,11 @@
 							{% for livre in livres %}
 
 								<td class="td_livre">
-									<a href=""> <img class="img_livre" src="{{ asset(livre.imageLivre.webPath) }}"> </a> <br/>
-									 {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}
+								<a href="{{path('livre_livre',{'id' : livre.id })}}">
+                                                                    {% if livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% endif %} <br/>
+                                                                    {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
 								</td>
 
 							{% endfor %}

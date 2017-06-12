@@ -14,48 +14,33 @@
                                     <a href="{{ path('fos_user_profile_edit') }}">Editer</a>
                                 </div>
 			</div> <!-- fin top -->
+                        
+                        <a href="{{ path('livre_ajout')}}">Ajouter un livre</a>
+                        
+                       <center>
+					<table class="tab_livre">
 
-				<table id="ma_biblio">
-					<h2> </h2>
-				  <tr>
-				    <th>Titre</th>
-				    <th>Auteur</th>
-				    <th>Parution</th>
-				    <th>Editeur</th>
-				    <th>Genre</th>
-				  </tr>	
-				  <tr></tr>
-				</table>
-				</br> </br>
+						{% if user.livres is not empty %}
 
-			<table class="form">
-				<form>
-					<tr> 
-						<td>
-							<label for="mail">Titre *</label>
-							<input id="mail"> </input>
-							</br> </br>
+						<table class="tab_livre">
+							<tr>
+							<!-- boucle sur l'ensemble des livres de la base de données -->
+							{% for livre in user.livres %}
 
-							<label for="nom">Auteur *</label>
-							<input id="nom"> </input>
-							</br> </br>
+								<td class="td_livre">
+								<a href="">
+                                                                    {% if livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% endif %} <br/>
+                                                                    {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
+								</td>
 
-							<label for="prenom">Ann&eecute;e de parution *</label>
-							<input id="prenom"> </input>
-							</br> </br>
+							{% endfor %}
+							</tr>
+						</table>
 
-							<label>Editeur *</label>
-							<input> </input>
-							</br> </br>
+						{% endif %}
 
-							<label>Genre</label>
-							<input> </input>
-							</br> </br>
-
-							<input type="submit" id="ajout" value="Ajouter">
-							<input type="submit" id="supprimer" value="Supprimer">
-						</td>
-					</tr>
-				</form>
-			</table>
+					</table>
+				</center>
 {% endblock %}

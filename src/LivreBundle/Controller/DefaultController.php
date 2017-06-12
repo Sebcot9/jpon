@@ -12,13 +12,20 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('LivreBundle:Default:Accueil.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $liste_livres = $em->getRepository('LivreBundle:Livre')->findAllCustom();
+
+   
+        return $this->render('LivreBundle:Default:Accueil.html.twig',array(
+          'livres' => $liste_livres,
+        ));
     }
 
     public function mabiblioAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $liste_livres = $em->getRepository('LivreBundle:Livre')->findAllCustom();
+        $user = $this->getUser();
+        $liste_livres = $em->getRepository('LivreBundle:Livre')->findByUser($user);
 
         return $this->render('LivreBundle:Jpo:Ma_Bibliotheque.html.twig', array(
           'livres' => $liste_livres,
@@ -27,17 +34,31 @@ class DefaultController extends Controller
 
     public function biblioAction()
     {
-        return $this->render('LivreBundle:Jpo:Bibliotheque.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $liste_livres = $em->getRepository('LivreBundle:Livre')->findAllCustom();
+
+        return $this->render('LivreBundle:Jpo:Bibliotheque.html.twig', array(
+          'livres' => $liste_livres,
+        ));
     }
 
-    public function livreAction()
+    public function livreAction($id)
     {
-         return $this->render('LivreBundle:Jpo:Livre.html.twig');
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('LivreBundle:Livre')
+        ;
+
+        $livre = $repository->find($id);
+        return $this->render('LivreBundle:Jpo:Livre.html.twig', array('livre' => $livre, ));
     }
 
-    public function rechercheAction()
+    public function rechercheAction($title)
     {
-        return $this->render('LivreBundle:Jpo:Recherche.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $livres = $em->getRepository('LivreBundle:Livre')->findByTitleLike($title);
+        return $this->render('LivreBundle:Jpo:Recherche.html.twig', array('livres' => $livres,));
     }
 
     public function proposAction()
@@ -49,11 +70,13 @@ class DefaultController extends Controller
     {
         // ------------ Formulaire livre DEBUT ------------
         $livre = new Livre();
+        $user = $this->getUser();
         $form = $this->createForm(LivreType::class, $livre);
-
+        
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
               // Ajout de la donnée
               $em = $this->getDoctrine()->getManager();
+              $livre->setUser($user);
               $em->persist($livre);
               $em->flush();
               // Ajout d'un éventuel flashbag

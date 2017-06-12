@@ -17,3 +17,8 @@ livre_ajout:
 livre_mabiblio:
     path: /mabiblio
     defaults: { _controller: LivreBundle:Default:mabiblio }
+    
+livre_livre:
+    path: /livre/{id}
+    defaults: { _controller: LivreBundle:Default:livre }
+    

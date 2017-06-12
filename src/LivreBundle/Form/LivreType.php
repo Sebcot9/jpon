@@ -41,6 +41,7 @@ class LivreType extends AbstractType
               'label' => 'Ajouter des genres : ',
               'class'        => 'LivreBundle:Genre',
               'choice_label' => 'nomgenre',
+              'expanded' => true,
               'multiple'     => true,
               'required' => false,
           ))
@@ -48,6 +49,10 @@ class LivreType extends AbstractType
               'label'  => false,
               'required' => false,
           ))
+          ->add('resume', TextareaType::class,array(
+              'label'=>'Résumé',
+              'required'=>false,
+              ))
           ->add('save', SubmitType::class, array('label' => 'ENVOYER'))
         ;
     }

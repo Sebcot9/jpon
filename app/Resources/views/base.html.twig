@@ -12,36 +12,36 @@
 			<div class="header">
 		        <div class="navigation">
 		          <ul class="main-nav">
-		            <li>
+		            <li style="float:left">
 		              <img class="img_topnav" src="{{asset('Images/Icones/Accueil_blanc.png')}}">
 		              <a href="/">Accueil</a>
 		            </li>    
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li class='dropdown'>
+                            <li style="float:left">
 		              <img class="img_topnav" src="{{asset('Images/Icones/Compte_blanc.png')}}">
-		              <a href="/ajout">Partager</a>
+		              <a href="{{ path('fos_user_profile_show')}}">Compte</a>
 		            <li>
                             {% else %}
-                            <li>
+                            <li style="float:left">
                                <img class="img_topnav" src="{{asset('Images/Icones/Compte_blanc.png')}}">
-                               <a href="{{ path('fos_user_registration_register') }}">Partager</a>
+                               <a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
                             </li>
                             {% endif %}
+                            <li style="float:left">
 		              <img class="img_topnav" src="{{asset('Images/Icones/Bibliotheque_blanc.png')}}">
 		              <a href="/biblio">Biblioth&egrave;que</a>
 		            </li>
-		            <li>
+		            <li style="float:left">
 		              <img class="img_topnav" src="{{asset('Images/Icones/Question_blanc.png')}}">
 		              <a href="/apropos">A propos</a>
 		            </li>
                             <li>
                             </li>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <li><a href="{{ path('fos_user_profile_show') }}">Bonjour, {{ app.user }}</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li
+                                <li style="float:right"><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li
                             {% else %}
-                                <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-                                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                  
+                                <li style="float:right"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                             {% endif %}
 		          </ul>
 		        </div>

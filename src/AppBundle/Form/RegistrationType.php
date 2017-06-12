@@ -5,8 +5,10 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType as AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 #use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
-
+use UserBundle\Entity\Adresse;
+use UserBundle\Form\AdresseType as AdresseType;
 class RegistrationType extends AbstractType
 {
     /**
@@ -18,7 +20,8 @@ class RegistrationType extends AbstractType
         $builder->add('prenom');
         $builder->add('dateNaissance',DateType::class,array('format' => 'dd MM yyyy',
             'years'=>range(1901,2002)));
-        parent::buildForm($builder, $options);
+        $builder->add('adresse', AdresseType::class, array('label' => false ));
+        //parent::buildForm($builder, $options);
 
         //$builder->add('addresse', Entity::class);
     }

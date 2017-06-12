@@ -1,42 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset=utf-8/>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<title>Titre livre</title>
-	</head>
 
-	<body>
-		<div class="conteneur ">
-			<img class="baniere" src="Images/Baniere_02.png">
-
-			<div> <!-- Barre de navigation -->
-				<table class="topnav">
-					<tr>
-						<td id="topnav"></td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Accueil_blanc.png"> 
-							<a class="menu" href="Accueil.html"> Accueil </a>
-						</td>
-
-						<td id="topnav"> <img class="img_topnav" src="Images/Icones/Compte_blanc.png"> <a class="menu" href="Compte.html"> Compte </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Bibliotheque_blanc.png">
-							<a class="menu" href="Bibliotheque.html"> Bibliotheque </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Question_blanc.png">
-							<a class="menu" href="A_Propos.html"> A propos </a> 
-						</td>
-						
-						<td id="topnav"></td>
-					</tr>	
-				</table>
-			</div>
 
 			<div class="div_livre"> 
 				<center>
@@ -44,21 +6,26 @@
 					<tr>
 						<td>
 							<center>
-								<h3>Titre du livre , Auteur</h3>
-								<img class="img_livre" src="Images/.jpg" alt="Couverture du livre">
+								<h3>{{livre.titre}}</h3>
+								    {% if livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% endif %} <br/>
 							</center>
 						</td>
 					</tr>
 					<tr> 
 						<td>
 							<h4> R&eacute;sum&eacute; : </h4>
-							<p class="resume"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+							<p class="resume"> 
+                                                            {% if livre.resume is not null %}
+                                                                {{ livre.resume}}
+                                                            {% else %}
+                                                                Pas de résumé
+                                                            {% endif %}
+                                                        </p>
 						</td>
 					</tr>
 				</table>
+                                
 				</center>
-			</div><!-- fin conteneur-->
-
-		</div> <!-- fin conteneur-->
-	</body>
-</html>
+			</div>

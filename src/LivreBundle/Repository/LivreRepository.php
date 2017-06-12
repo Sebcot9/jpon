@@ -18,7 +18,7 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
           ->addSelect('i')
         ;
     }
-
+    
     public function findAllCustom() {
       $qb = $this->createQueryBuilder('l');
       // Jointure sur l'image
@@ -29,5 +29,25 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
         ->getResult()
       ;
     }
-
+    
+    public function findByTitleLike($title){
+                $qb = $this->createQueryBuilder('l');
+                $qb->where('l.title LIKE :user')
+                ->setParameter('title', $title)
+                ->orderBy('l.date_ajout', 'DESC');
+    }
+    
+    public function findByUser($user){
+        $qb = $this->createQueryBuilder('l');
+        $qb->where('l.user = :user')
+                ->setParameter('user', $user)
+                ->orderBy('l.date_ajout', 'DESC')
+        ;
+        
+        return $qb
+                ->getQuery()
+                ->getResult()
+        ;
+    }
+    
 }

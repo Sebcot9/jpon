@@ -1,6 +1,6 @@
-user_homepage:
-    path:     /id
-    defaults: { _controller: UserBundle:User:user }
+#user_homepage:
+#    path:     /id
+#    defaults: { _controller: UserBundle:User:user }
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -12,7 +12,6 @@ fos_user_profile:
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /inscription
-
 
 
 fos_user_resetting:

@@ -2,12 +2,287 @@ body {
      background-image:url("Images/Background-1.png");
 }
 
-/*****************************Ecran Petit**************************************/
-@media screen and (min-width: 960px) and (max-width: 1249px)
+/******************************Smartphone**************************************/
+
+/******************************Tablette ***************************************/
+
+/*****************************Petit Ecran**************************************/
+@media screen and (min-width: 360px) and (max-width: 1248px)
 {
   .conteneur {
     background-image:url("Images/Background-2.png");
 
+    width:90%;
+    height: 100%;
+    position:absolute;
+    margin-left: 5%;
+  }
+
+  /****************************************************************************/
+  /*menu*/
+  .header {
+    width: 100%;
+    background-color: #000000;
+    height: 6%;
+  }
+
+  .navigation {
+    float:left;
+    width: 100%;
+  }
+
+  .main-nav {
+     width: 80%;
+     margin-left: 15%;
+  }
+
+  .main-nav li {
+    float:left;
+    list-style-type: none;
+    width: 20%;
+    text-align: center;
+  }
+
+  .main-nav li a {
+    line-height: 32px;
+    text-decoration: none;
+    width: 20%;
+
+    color: white;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .main-nav li:hover {
+    background-color: #00B050;
+  }
+
+  .img_topnav {
+    width: 20px;
+    height: 20px;
+  }
+
+  /****************************************************************************/
+  /*images*/
+
+  .baniere {
+    width: 100%;
+  }
+
+  .img_livre {
+    width: 150px;
+    height: 200px;
+  }
+
+ .img_fiche_livre {
+   width: 300px;
+   height: 400px;
+   padding-left: 33%;
+ }
+
+  /******************************************************************************/
+  /*textes*/
+
+  h1 {
+      color: #ED7D31;
+      font-family:"Comic Sans MS";
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+  }
+
+  h2 {
+    color: #00B050;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h3 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h4 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  h5 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 2%;
+  }
+
+  p {
+    text-align: center;
+    font-family: Arial;
+    font-size: 12px;
+  }
+
+
+  .resume {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+  }
+
+  .livr_titre {
+    color: #000000;
+    font-family:"Comic Sans MS";
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10%
+  }
+
+  /******************************************************************************/
+  /*Accueil*/
+
+  .livres_ajoutes {
+    width: 100%
+  }
+
+  .tab_livre {
+    width: 60%;
+    margin-left: 6%;
+    background-image:url("Images/Background-2.png");
+  }
+
+  .td_livre {
+    width:25%;
+    border: 2px solid #00B050;
+    background-image:url("Images/Background-1.png");
+    text-align: center;
+  }
+
+  /******************************************************************************/
+  /*Recherche*/
+  .div_resultat {
+    width: 80%;
+    padding-left: 10%;
+  }
+
+  .tab_result {
+    border: 2px solid #00B050;
+  }
+
+  .tab_result tr {
+    background-image:url("Images/Background-1.png");
+    border: 2px solid #00B050;
+  }
+
+  .tab_result td, th {
+    text-align: center;
+    width: 5%;
+  }
+
+  /******************************************************************************/
+  /*Partage*/
+  .div_partage {
+    width: 80%;
+    padding-left: 15%;
+  }
+
+  .tab_partage {
+      border: 2px solid #00B050;
+  }
+
+  .tab_partage tr {
+    background-image:url("Images/Background-1.png");
+  }
+
+  .tab_partage td {
+
+  }
+
+  #info_lvr {
+    width: 75%;
+  }
+  /******************************************************************************/
+  /*formulaires*/
+  .div_form_conn {
+    height: 30%;
+    width: 40%;
+    padding-top: 10%;
+    padding-left: 20%;
+  }
+
+  .div_form_inscr {
+    padding-left: 20%;
+  }
+
+  .div_form_recherche {
+    padding-left: 20%;
+  }
+
+  .div_form_ajout {
+    padding-left: 30%;
+  }
+  
+  .div_form_ajout input[type="checkbox"]
+  {
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:15px;
+  }
+
+  .div_form_suppr {
+    padding-top: 10%;
+    padding-left: 30%;
+  }
+
+  fieldset {
+     max-width:80%;
+     border-color:  #00B050;
+     background-image:url("Images/Background-1.png");
+  }
+
+  legend {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-variant: small-caps;
+
+    font-family: Arial;
+    font-size: 16px;
+  }
+
+  label {
+    width: 110px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px;
+
+    font-family: Arial;
+    font-size: 14px;
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+  }
+
+  form {
+    width: 600px;
+  }
+
+  /******************************************************************************/
+}
+
+/*****************************Ecran Moyen**************************************/
+@media screen and (min-width: 1249px) and (max-width: 1631px)
+{
+  .conteneur {
+    background-image:url("Images/Background-2.png");
     width:90%;
     height: 100%;
     position:absolute;
@@ -59,7 +334,7 @@ body {
     height: 20px;
   }
 
-  /******************************************************************************/
+  /****************************************************************************/
   /*images*/
 
   .baniere {
@@ -74,6 +349,12 @@ body {
   .img_suppr {
     width: 10px;
     height: 10px;
+  }
+
+  .img_fiche_livre {
+    width: 300px;
+    height: 400px;
+    padding-left: 36%;
   }
 
   /******************************************************************************/
@@ -137,7 +418,7 @@ body {
 
   .tab_livre {
     width: 60%;
-    margin-left: 5%;
+    padding-left: 15%;
     background-image:url("Images/Background-2.png");
   }
 
@@ -170,20 +451,51 @@ body {
   }
 
   /******************************************************************************/
+  /*Partage*/
+  .div_partage {
+    width: 80%;
+    padding-left: 20%;
+  }
+
+  .tab_partage {
+      border: 2px solid #00B050;
+  }
+
+  .tab_partage tr {
+    background-image:url("Images/Background-1.png");
+  }
+
+  .tab_partage td {
+
+  }
+
+  #info_lvr {
+    width: 75%;
+  }
+  /******************************************************************************/
   /*formulaires*/
   .div_form_conn {
     height: 30%;
     width: 40%;
     padding-top: 10%;
-    padding-left: 35%;
+    padding-left: 30%;
   }
 
   .div_form_inscr {
-    padding-left: 35%;
+    padding-left: 30%;
   }
 
   .div_form_recherche {
-    padding-left: 35%;
+    padding-left: 30%;
+  }
+
+  .div_form_ajout {
+    padding-left: 20%;
+  }
+
+  .div_form_suppr {
+    padding-top: 10%;
+    padding-left: 20%;
   }
 
   fieldset {
@@ -298,6 +610,11 @@ body {
     height: 10px;
   }
 
+  .img_fiche_livre {
+    width: 300px;
+    height: 400px;
+    padding-left: 40%;
+  }
   /******************************************************************************/
   /*textes*/
 
@@ -332,6 +649,22 @@ body {
     font-weight: bold;
   }
 
+  h5 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 2%;
+  }
+
+  h5 {
+    color: #000000;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 2%;
+  }
+
   p {
     text-align: center;
     font-family: Arial;
@@ -339,7 +672,9 @@ body {
   }
 
   .resume {
-    padding-right: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
   }
 
   .livr_titre {
@@ -392,6 +727,28 @@ body {
   }
 
   /******************************************************************************/
+  /*Partage*/
+  .div_partage {
+    width: 80%;
+    padding-left: 30%;
+  }
+
+  .tab_partage {
+      border: 2px solid #00B050;
+  }
+
+  .tab_partage tr {
+    background-image:url("Images/Background-1.png");
+  }
+
+  .tab_partage td {
+
+  }
+
+  #info_lvr {
+    width: 75%;
+  }
+  /******************************************************************************/
   /*formulaires*/
   .div_form_conn {
     height: 30%;
@@ -405,6 +762,15 @@ body {
   }
 
   .div_form_recherche {
+    padding-left: 35%;
+  }
+
+  .div_form_ajout {
+    padding-left: 35%;
+  }
+
+  .div_form_suppr {
+    padding-top: 10%;
     padding-left: 35%;
   }
 

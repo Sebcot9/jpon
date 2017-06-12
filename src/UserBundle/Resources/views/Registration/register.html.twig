@@ -1,11 +1,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% extends "base.html.twig" %}
 {% block body %}
-
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
-{{ form_end(form) }}
+			<div class="div_form_inscr">
+                            <br/>
+                            <legend>Inscription</legend>
+                            <fieldset>
+                                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form_id'}}) }}
+                                    {{ form_widget(form) }}
+                                    <div>
+                                        <input type="submit" value="S'inscrire" />
+                                    </div>
+                                    {{ form_end(form) }}
+                            </fieldset>
+			</div> <!-- fin div_form -->
 {% endblock %}

@@ -44,16 +44,14 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="LivreBundle\Entity\Livre", mappedBy="id")
+     * @ORM\OneToMany(targetEntity="LivreBundle\Entity\Livre", mappedBy="user", cascade={"persist","remove"})
+     * @ORM\JoinColumn(name="livres", referencedColumnName="id")
      */
-    private $idLivre;
+    private $livres;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Adresse")
-     * @ORM\JoinColumns({
-     *  @ORM\JoinColumn(name="id_adresse", referencedColumnName="id")})
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Adresse", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn() 
      */
     private $adresse;
 
@@ -63,48 +61,48 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->idLivre = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->livres = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idAdresse = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
-     * Add idLivre
+     * Add Livre
      *
-     * @param \UserBundle\Entity\Livre $idLivre
+     * @param \LivreBundle\Entity\Livre $livre
      *
      * @return User
      */
-    public function addIdLivre(\UserBundle\Entity\Livre $idLivre)
+    public function addLivres(\LivreBundle\Entity\Livre $livre)
     {
-        $this->idLivre[] = $idLivre;
+        $this->livres[] = $livre;
 
         return $this;
     }
 
     /**
-     * Remove idLivre
+     * Remove Livre
      *
-     * @param \UserBundle\Entity\Livre $idLivre
+     * @param \LivreBundle\Entity\Livre $livre
      */
-    public function removeIdLivre(\UserBundle\Entity\Livre $idLivre)
+    public function removeLivre(\LivreBundle\Entity\Livre $livre)
     {
-        $this->idLivre->removeElement($idLivre);
+        $this->livres->removeElement($livre);
     }
 
     /**
-     * Get idLivre
+     * Get livres
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getIdLivre()
+    public function getlivre()
     {
-        return $this->idLivre;
+        return $this->livres;
     }
 
     /**
-     * Add idAdresse
+     * Add adresse
      *
-     * @param \UserBundle\Entity\Adresse $idAdresse
+     * @param \UserBundle\Entity\Adresse $adresse
      *
      * @return User
      */
@@ -204,5 +202,29 @@ class User extends BaseUser
     public function getDateNaissance()
     {
         return $this->dateNaissance;
+    }
+
+    /**
+     * Add livre
+     *
+     * @param \LivreBundle\Entity\Livre $livre
+     *
+     * @return User
+     */
+    public function addLivre(\LivreBundle\Entity\Livre $livre)
+    {
+        $this->livres[] = $livre;
+
+        return $this;
+    }
+
+    /**
+     * Get livres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLivres()
+    {
+        return $this->livres;
     }
 }

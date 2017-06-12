@@ -23,6 +23,8 @@ security:
                 check_path: fos_user_security_check
                 login_path: /login
                 provider: fos_userbundle
+                default_target_path: /
+                failure_path : /user/login
             logout:
                path:    fos_user_security_logout
                target: livre_homepage
@@ -33,6 +35,7 @@ security:
 
     access_control:
        - { path: ^/user/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/reset, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/admin/, role: ROLE_ADMIN }

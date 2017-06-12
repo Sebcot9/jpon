@@ -2,78 +2,12 @@
 {% block body %}
 			<div class="div_form">
 				<center>
-					<table class="tab_form">
-						<form>
-							<tr class="form_conn">
-								<td>
-									<label for"mail"> E-mail *</label>
-									<input id="mail"> </input>
-									</br> </br>
-
-									<label for"pseudo"> Pseudo *</label>
-									<input id="pseudo"> </input>
-									</br> </br>
-
-
-
-								</td>
-
-								<td>
-									<label for="pswd">Mot de passe *</label>
-									<input id="pswd"> </input>
-									</br> </br>
-
-									<label for="pswd2">Confirmer Mot de passe *</label>
-									<input id="pswd2"> </input>
-									</br> </br>
-
-								</td>
-							</tr>
-
-							<tr id="form_conn"> 
-								<td>
-									<label for="nom">Nom</label>
-									<input id="nom"> </input>
-									</br> </br>
-
-									<label for="prenom">Prenom </label>
-									<input id="prenom"> </input>
-									</br> </br>
-
-									<label>Date de naissance</label>
-									<select name="jours">
-									    <option value="jours">01</option>
-									</select>
-
-									<select name="mois">
-									    <option value="mois">01</option>
-									</select>
-
-									<select name="annee">
-									    <option value="annee">1980</option>
-									</select>
-								</td>
-
-								<td>
-
-									<label for="rue">Rue</label>
-									<input id="rue"> </input>
-									</br> </br>
-
-									<label for="ville">Ville *</label>
-									<input id="ville"> </input>
-									</br> </br>
-
-									<label for="cp">Code postal *</label>
-									<input id="cp"> </input>
-									</br> </br>
-
-									</br> </br>
-									<input type="submit" value="Confirmer">
-								</td>
-							</tr>
-						</form>
-					</table>
+                                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                                    {{ form_widget(form) }}
+                                    <div>
+                                        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                                    </div>
+                                    {{ form_end(form) }}
 				</center>
 			</div> <!-- fin div_form -->
 

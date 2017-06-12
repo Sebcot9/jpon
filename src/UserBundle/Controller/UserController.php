@@ -11,4 +11,8 @@ class UserController extends Controller
         return $this->render('UserBundle:User:Compte.html.twig');   
     }
 
+    public function listecommandeAction()
+    {
+        
+    }
 }

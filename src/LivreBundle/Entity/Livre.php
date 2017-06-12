@@ -14,6 +14,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Livre
 {
     /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="livres")
+     * @ORM\JoinColumn(nullable=false) 
+     */
+    private $user;
+    
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -37,12 +43,19 @@ class Livre
     private $resume;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_ajout", type="date")
+     */
+    private $dateAjout;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="etat", type="string", length=255, nullable=true)
      */
     private $etat;
-
+    
     /**
      * @var string
      *
@@ -57,11 +70,16 @@ class Livre
      */
     private $auteur;
 
+    
     /**
-      * @ORM\ManyToMany(targetEntity="LivreBundle\Entity\Genre", cascade={"persist"})
-      */
+    * @ORM\ManyToMany(targetEntity="LivreBundle\Entity\Genre", cascade={"persist"})
+    */
      private $genres;
 
+     /**
+      * @ORM\OneToOne(targetEntity="UserBundle\Entity\Commande", cascade={"persist"})
+      */
+     private $commande;
      
      /**
      * @ORM\OneToOne(targetEntity="LivreBundle\Entity\Image", cascade={"persist", "remove"}, orphanRemoval=true)
@@ -72,6 +90,7 @@ class Livre
      public function __construct()
      {
         // default date is today's date
+        $this->dateAjout = new \DateTime('now');
         $this->genres = new ArrayCollection();
      }
 
@@ -261,5 +280,77 @@ class Livre
     public function getImageLivre()
     {
         return $this->imageLivre;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Livre
+     */
+    public function setUser(\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set dateAjout
+     *
+     * @param \DateTime $dateAjout
+     *
+     * @return Livre
+     */
+    public function setDateAjout($dateAjout)
+    {
+        $this->dateAjout = $dateAjout;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAjout
+     *
+     * @return \DateTime
+     */
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
+    }
+
+    /**
+     * Set commande
+     *
+     * @param \UserBundle\Entity\Commande $commande
+     *
+     * @return Livre
+     */
+    public function setCommande(\UserBundle\Entity\Commande $commande = null)
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \UserBundle\Entity\Commande
+     */
+    public function getCommande()
+    {
+        return $this->commande;
     }
 }

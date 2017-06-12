@@ -94,4 +94,3 @@ class Avis
         return $this->avis;
     }
 }
-
