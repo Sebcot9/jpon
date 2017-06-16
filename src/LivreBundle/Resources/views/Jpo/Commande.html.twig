@@ -1,0 +1,33 @@
+
+{% extends "base.html.twig"%}
+{% block body %}
+			<div class="div_livre"> 
+				<center>
+				<table class="tab_livre">
+					
+                                        <tr>
+                                            <td>
+							<center>
+								<h3>Votre demande d'&eacute;change</h3>
+							</center>
+                                            </td>
+                                            <td>
+							<h4> R&eacute;sum&eacute; de la commande: </h4>
+							<p class="resume">
+                                                                {{ commande.livre.titre}}
+                                                        </p>
+                                                        
+                                            </td>
+                                            <td>								    
+                                                {% if commande.livre.imageLivre is not null %}
+                                                    <img class="img_livre" src="{{ asset(commande.livre.imageLivre.getwebPath()) }}">
+                                                {% else %}
+                                                    <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">
+                                                {% endif %} <br/>
+                                            </td>
+					</tr>
+				</table>
+				</center>
+                                                        
+			</div>
+{% endblock %}

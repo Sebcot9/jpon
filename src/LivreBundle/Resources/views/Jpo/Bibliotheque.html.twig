@@ -29,6 +29,8 @@
 								<a href="{{path('livre_livre',{'id' : livre.id })}}">
                                                                     {% if livre.imageLivre is not null %}
                                                                         <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% else %}
+                                                                        <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">
                                                                     {% endif %} <br/>
                                                                     {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
 								</td>

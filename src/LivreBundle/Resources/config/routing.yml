@@ -22,3 +22,21 @@ livre_livre:
     path: /livre/{id}
     defaults: { _controller: LivreBundle:Default:livre }
     
+livre_echange:
+    path: /echange/{id}
+    defaults: { _controller: LivreBundle:Default:echange }
+    
+livre_suppr:
+    path: /livre/{id}
+    defaults: { _controller: LivreBundle:suppr }
+    
+livre_demande:
+    path: /demande/{id}
+    defaults: { _controller: LivreBundle:Default:demande }
+    
+livre_accept:
+    path: /fin/{id}
+    defaults: { _controller: LivreBundle:Default:validation }
+    methods: GET
+    requirements:
+        id: \d

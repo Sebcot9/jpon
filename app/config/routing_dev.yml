@@ -12,3 +12,8 @@ _errors:
 
 _main:
     resource: routing.yml
+
+_maxmind_geoip:
+    resource: "@MaxmindGeoipBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo

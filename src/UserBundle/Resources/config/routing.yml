@@ -21,3 +21,11 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+user_inscription:
+    path: /inscription
+    defaults: { _controller: UserBundle:Registration:register }
+
+user_geo:
+    path: /inscription
+    defaults: { _controller: UserBundle:User:geoloc }

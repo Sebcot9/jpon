@@ -1,10 +1,27 @@
 {% extends "base.html.twig"%}
 {% block body %}
 
-
+<br/>
   {{ form_start(form, {'attr': {'class': 'div_form_ajout'}}) }}
     {{ form_errors(form) }}
-
+    {{ form_label(form.titre) }}
+    {{ form_widget(form.titre) }}<br/>
+    
+    {{ form_label(form.genres) }}
+    {% if form.genres%}
+    <table>
+    {% for column in form.genres|batch(4,null) %}
+        <tr>
+        {% for genre in column %}
+            <td>
+                {{ form_widget(genre) }}
+                {{ form_label(genre) }}
+            <td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
     {{ form_rest(form) }}
   {{ form_end(form) }}
 

@@ -79,9 +79,15 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
+    profile:
+        form:
+            type: AppBundle\Form\ProfileFormType
             
 assetic:
     debug:  '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+maxmind_geoip:
+   data_file_path: "%kernel.root_dir%/../web/GeoLiteCity_1.dat"

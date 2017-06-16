@@ -35,6 +35,10 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
                 $qb->where('l.title LIKE :user')
                 ->setParameter('title', $title)
                 ->orderBy('l.date_ajout', 'DESC');
+                $this->joinImage($qb);
+                
+                return $qb->getQuery()->getResult();
+                
     }
     
     public function findByUser($user){
@@ -43,11 +47,23 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('user', $user)
                 ->orderBy('l.date_ajout', 'DESC')
         ;
-        
+        $this->joinImage($qb);
         return $qb
                 ->getQuery()
                 ->getResult()
         ;
+    }
+    
+    public function findToPages($first_result, $max_results = 20)
+    {
+        $qb = $this->createQueryBuilder('l');
+        $qb->select('l')
+            ->addSelect('l.image', 'image')
+            ->setFirstResult($first_result)
+            ->setMaxResults($max_results);
+        
+        $pag = new \Doctrine\ORM\Tools\Pagination\Paginator($qb);
+        return $pag;
     }
     
 }

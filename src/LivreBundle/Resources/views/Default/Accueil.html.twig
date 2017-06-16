@@ -4,35 +4,34 @@
 
 
 			<br/> <br/>
-
-			<div classe="livres_ajoutes">
-				<h2> Les derniers livres ajout&eacute;es </h2>
+       {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div classe="livres_ajoutes">
+            <h2> Les derniers livres ajout&eacute;es </h2>
 
 				<center>
 					<table class="tab_livre">
-						<tr>
+						{% for column in livres|batch(4,null) %}
+                                                <tr>
+                                                    {% for livre in column %}
 							<td class="td_livre">
-								<a href="/livre"> <img class="img_livre" src={{asset('Images/Simpson-t1.jpg')}}> </a> <br/>
-								 Les Simpson - Camping en d&eacute;lire <br/> MATT GROENING, Jungle
+                                                                    <a href="{{path('livre_livre',{'id' : livre.id })}}">
+                                                                    {% if livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% else %}
+                                                                        <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">               
+                                                                    {% endif %} <br/>
+                                                                    {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
+								</td>
 							</td>
-							<td class="td_livre">
-								<a href="/livre"> <img class="img_livre" src={{asset('Images/Harry_Potter_t1.jpg')}}> </a> <br/>
-								Harry potter &agrave; l'&eacute;cole des sorciers <br/> J-K Rowling, Galimard
-							</td>
-							<td>
-								<a href="/livre"> <img class="img_livre" src={{asset('Images/Candide.jpg')}}> </a>  <br/>
-								Candide <br/> VOLTAIRE, Livre de poche
-							</td>
-							<td class="td_livre">
-								<a href="/livre"> <img class="img_livre" src={{asset('Images/Tintin_Congo.jpg')}}> </a>  <br/>
-								Tintin au Congo <br/> HERGE, Casterman
-							</td>
-							<td class="td_livre">
-								<a href="/livre"> <img class="img_livre" src={{asset('Images/Letranger.jpg')}}>  </a> <br/>
-								L &eacute;tranger <br/> Albert Camus, Folio
-							</td>
-
+                                                    {% endfor %}
 						</tr>
+                                                {% endfor %}
 					</table>
 				</center>
 			</div>

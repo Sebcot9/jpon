@@ -4,7 +4,7 @@ namespace LivreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use UserBundle\Entity\Commande;
 use LivreBundle\Entity\Livre;
 use LivreBundle\Form\LivreType;
 
@@ -44,6 +44,8 @@ class DefaultController extends Controller
 
     public function livreAction($id)
     {
+        $user = $this->getUser();
+        
         $repository = $this
         ->getDoctrine()
         ->getManager()
@@ -51,11 +53,31 @@ class DefaultController extends Controller
         ;
 
         $livre = $repository->find($id);
-        return $this->render('LivreBundle:Jpo:Livre.html.twig', array('livre' => $livre, ));
+        return $this->render('LivreBundle:Jpo:Livre.html.twig', array('livre' => $livre, 'user' => $user, ));
     }
 
-    public function rechercheAction($title)
+    public function supprAction(Request $request,$id)
     {
+        if ($request->isMethod('POST')) {
+              // Ajout de la donnée
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('LivreBundle:Livre')
+        ;
+
+        $livre = $repository->find($id);
+        $em->remove($livre);
+        
+        $request->getSession()->getFlashBag()->add('notice', 'Livre bien ajouté.');
+        }
+        return $this->render('UserBundle:Profile:show.html.twig');
+    }
+    
+    public function rechercheAction(Request $request)
+    {
+        $title = $request->request->get("titre");
         $em = $this->getDoctrine()->getManager();
         $livres = $em->getRepository('LivreBundle:Livre')->findByTitleLike($title);
         return $this->render('LivreBundle:Jpo:Recherche.html.twig', array('livres' => $livres,));
@@ -86,9 +108,70 @@ class DefaultController extends Controller
         }
         // ------------ Formulaire livre FIN ------------
 
-        return $this->render('LivreBundle:Jpo:ajout.html.twig', array(
+        return $this->render('LivreBundle:Default:Accueil.html.twig', array(
           'form' => $form->createView(),
         ));
 
+    }
+    
+    public function demandeAction($id)
+    {
+        //$user = $this->getUser();
+        
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('UserBundle:Commande')
+        ;
+
+        $commande = $repository->find($id);
+        return $this->render('LivreBundle:Jpo:Demande.html.twig', array('commande' => $commande, ));
+    }
+    public function validationAction(Request $request, $id){
+        $em = $this->getDoctrine()->getManager();
+        
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('UserBundle:Commande')
+        ;
+
+        $commande = $repository->find($id);
+        $livre = $commande->getLivre();
+        $newUser = $commande->getDemandeur();
+        $oldUser = $commande->getPossesseur();
+        $livre->setUser($newUser);
+        $livre->setEtat("Partagé par ".$oldUser->getUsername());
+        $em->persist($livre);
+        $em->remove($commande);
+        $em->flush();
+        $request->getSession()->getFlashBag()->add('notice', 'Commande validée.');
+        
+        return $this->redirect($this->generateUrl('fos_user_profile_show'));
+
+    }
+    
+    public function echangeAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $commande = new Commande();
+        $demandeur = $this->getUser();
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('LivreBundle:Livre')
+        ;
+
+        $livre = $repository->find($id);
+        $possesseur = $livre->getUser();
+        $commande->setDemandeur($demandeur)
+                ->setLivre($livre)
+                ->setPossesseur($possesseur);
+        $livre-setCommande($commande);
+        $em->persist($livre);
+        $em->persist($commande);
+        $em->flush();
+        
+        return $this->render('LivreBundle:Jpo:Commande.html.twig', array('commande' => $commande, ));
+        
     }
 }

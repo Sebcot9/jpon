@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Maxmind\Bundle\GeoipBundle\MaxmindGeoipBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

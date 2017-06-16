@@ -23,6 +23,16 @@ class User extends BaseUser
     protected $id;
     
     /**
+     * @ORM\OneToOne(targetEntity="UserBundle\Entity\Commande", cascade={"persist"})
+     */
+    public $demande;
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Commande", mappedBy="possesseur", cascade={"persist","remove"})
+     */
+    public $listeCommande;
+    /**
      * @var string
      * @ORM\Column(name="nom", type="string", length=50)
      */
@@ -226,5 +236,63 @@ class User extends BaseUser
     public function getLivres()
     {
         return $this->livres;
+    }
+
+    /**
+     * Add listeCommande
+     *
+     * @param \UserBundle\Entity\Commande $listeCommande
+     *
+     * @return User
+     */
+    public function addListeCommande(\UserBundle\Entity\Commande $listeCommande)
+    {
+        $this->listeCommande[] = $listeCommande;
+
+        return $this;
+    }
+
+    /**
+     * Remove listeCommande
+     *
+     * @param \UserBundle\Entity\Commande $listeCommande
+     */
+    public function removeListeCommande(\UserBundle\Entity\Commande $listeCommande)
+    {
+        $this->listeCommande->removeElement($listeCommande);
+    }
+
+    /**
+     * Get listeCommande
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getListeCommande()
+    {
+        return $this->listeCommande;
+    }
+
+    /**
+     * Set demande
+     *
+     * @param \UserBundle\Entity\User $demande
+     *
+     * @return User
+     */
+    public function setDemande(\UserBundle\Entity\User $demande = null)
+    {
+        $this->demande = $demande;
+
+        return $this;
+    }
+
+    /**
+     * Get demande
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getDemande()
+    {
+        return $this->demande;
     }
 }

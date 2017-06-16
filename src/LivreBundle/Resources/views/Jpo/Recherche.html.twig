@@ -1,42 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset=utf-8>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<title>Recherche</title>
-	</head>
-
-	<body>
-		<div class="conteneur ">
-			<img class="baniere" src="Images/Baniere_02.png">
-
-			<div> <!-- Barre de navigation -->
-				<table class="topnav">
-					<tr>
-						<td id="topnav"></td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Accueil_vert.png"> 
-							<a class="active" href="Accueil.html"> Accueil </a>
-						</td>
-
-						<td id="topnav"> <img class="img_topnav" src="Images/Icones/Compte_blanc.png"> <a class="menu" href="Compte.html"> Compte </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Bibliotheque_blanc.png">
-							<a class="menu" href="Bibliotheque.html"> Bibliotheque </a> 
-						</td>
-
-						<td id="topnav"> 
-							<img class="img_topnav" src="Images/Icones/Question_blanc.png">
-							<a class="menu" href="A_Propos.html"> A propos </a> 
-						</td>
-						
-						<td id="topnav"></td>
-					</tr>	
-				</table>
-			</div> <!-- fin barre de navigation -->
+{% extends "base.html.twig" %}
+{% block body %}
 			
 			<br/> <br/>
 
@@ -46,25 +9,9 @@
 						<form>
 							<tr> 
 								<td>
-									<label for"mail">Titre *</label>
-									<input id="mail"> </input>
-									</br> </br>
+									<label for="titre">Titre *</label>
+									<input name='titre' id='titre'> </input>
 
-									<label for="nom">Auteur *</label>
-									<input id="nom"> </input>
-									</br> </br>
-
-									<label for="prenom">Ann&eecute;e de parution *</label>
-									<input id="prenom"> </input>
-									</br> </br>
-
-									<label>Editeur *</label>
-									<input> </input>
-									</br> </br>
-
-									<label>Genre</label>
-									<input> </input>
-									</br> </br>
 									
 									<input type="submit" id="recherche" value="Rechercher">
 								</td>
@@ -79,26 +26,8 @@
 			<center>
 				<div class="result">
 					<table>
-					  <tr>
-					    <th>Titre</th> <th>Auteur</th> <th>Editeur</th> <th>Parution</th> <th>Genre</th>
-					  </tr>	
-					  
-					  <tr>
-					  	<td>Les Simpson - Camping en d&eacute;lire</td> <td>MATT GROENING</td> 
-					  	<td>Jungle</td> <td>2008</td> <td>BD</td> 
-					  </tr>
 
-					  <tr>
-					  	<td>Tintin au Congo </td> <td>HERGE</td> 
-					  	<td>Casterman</td> <td>1931</td> <td>BD</td> 
-					  </tr>
 					</table>
 				</div>
 			</center>
-			
-			
-
-
-		</div> <!-- fin conteneur-->
-	</body>
-</html>
+{% endblock %}

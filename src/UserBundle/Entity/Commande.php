@@ -28,7 +28,11 @@ class Commande
      */
     private $dateCommande;
 
-
+    /**
+     *  @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="listeCommande" ,cascade={"persist"})
+     */
+    private $possesseur;
+    
     /**
      * @ORM\OneToOne(targetEntity="LivreBundle\Entity\Livre", cascade={"persist"})
      */
@@ -39,6 +43,9 @@ class Commande
      */
     private $demandeur;
     
+    public function __construct() {
+        $this->dateCommande = new \DateTime('now');
+    }
     /**
      * Get id
      *
@@ -119,5 +126,29 @@ class Commande
     public function getDemandeur()
     {
         return $this->demandeur;
+    }
+
+    /**
+     * Set possesseur
+     *
+     * @param \UserBundle\Entity\User $possesseur
+     *
+     * @return Commande
+     */
+    public function setPossesseur(\UserBundle\Entity\User $possesseur = null)
+    {
+        $this->possesseur = $possesseur;
+
+        return $this;
+    }
+
+    /**
+     * Get possesseur
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getPossesseur()
+    {
+        return $this->possesseur;
     }
 }

@@ -1,5 +1,6 @@
 
-
+{% extends "base.html.twig"%}
+{% block body %}
 			<div class="div_livre"> 
 				<center>
 				<table class="tab_livre">
@@ -9,6 +10,8 @@
 								<h3>{{livre.titre}}</h3>
 								    {% if livre.imageLivre is not null %}
                                                                         <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% else %}
+                                                                        <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">
                                                                     {% endif %} <br/>
 							</center>
 						</td>
@@ -25,7 +28,44 @@
                                                         </p>
 						</td>
 					</tr>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            {% if livre.user != user %}
+                                            <tr>
+                                                <td>
+                                                  
+                                                    <a href="{{path('livre_echange',{'id' : livre.id })}}" style="text-decoration: none"><input type="button" value="Demander"></a>
+                                                </td>
+                                            </tr>
+                                            {% elseif user.demande %}
+                                                {% if user.demande.livre == livre %}
+                                                <tr>
+                                                    <td>                                         
+                                                        <a href="{{path('livre_echange',{'id' : livre.id })}}" style="text-decoration: none"><input type="button" value="deja commandé"></a>
+                                                    </td>
+                                                </tr>
+                                                {% endif %}
+                                            {% elseif user.livres %}
+                                                {% for ulivre in user.livres%}
+                                                    {% if ulivre == livre %}
+                                                <tr>
+                                                    <td>                                                  
+                                                        <a href="{{path('livre_suppr',{'id' : livre.id })}}" style="text-decoration: none"><input type="button" value="Supprimer"></a>
+                                                    </td>
+                                                </tr>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% else %}
+                                        <tr>                                       
+                                                <td>
+                                                  
+                                                    <a href="{{ path('fos_user_profile_show')}}" style="text-decoration: none"><input type="button" value="Se connecter"></a>
+                                                </td>
+                                        </tr>
+                                        {% endif %}
+                                        
 				</table>
-                                
 				</center>
+                                                        
 			</div>
+{% endblock %}

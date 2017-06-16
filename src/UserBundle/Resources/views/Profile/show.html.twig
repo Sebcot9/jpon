@@ -2,45 +2,89 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+{% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+{% endif %}
 <div class="top">
-				<label for="geolocalisation"> G&eacute;olocalisation </label>
-				<select id="geolocalisation">
-					<option>On</option>
-					<option>Off</option>
-				</select>
-                                <div>       
-                                    <label> Nom d'utilisateur : {{ app.user.username }}</label>
-                                    <label>Adresse e-mail : {{ app.user.email }}</label>
-                                    <a href="{{ path('fos_user_profile_edit') }}">Editer</a>
-                                </div>
-			</div> <!-- fin top -->
-                        
-                        <a href="{{ path('livre_ajout')}}">Ajouter un livre</a>
-                        
-                       <center>
-					<table class="tab_livre">
 
-						{% if user.livres is not empty %}
+    <legend>Compte Utilisateur</legend>
+    <fieldset>
+    <p>Nom d'utilisateur : {{ app.user.username }}</p><br/>
+    <p>Nom: {{ user.nom }}</p><br/>
+    <p>Prenom: {{ user.prenom }}</p><br/>
+    <p>Adresse e-mail : {{ app.user.email }}</p><br/>
+    <p>Adresse : {{ user.adresse.adresse }},{{ user.adresse.ville }},{{ user.adresse.codePostal }} </p><br/>
+    <p>Date de naissance : {{ user.dateNaissance|date('d-m-Y')}}</p><br/>
+
+    <a href="{{ path('fos_user_profile_edit') }}">Editer</a></fieldset>
+
+</div> <!-- fin top -->
+                      {% if user.livres is not empty %}  
+                      <legend>Mes livres</legend>
+                                    <fieldset> 
+                                        <a href="{{ path('livre_ajout')}}">Ajouter un livre</a>
+                        
+                      <center>
+
+                                     
+
+                                     <table class="tab_livre">
+                                             <tr>
+                                             <!-- boucle sur l'ensemble des livres de la base de données -->
+                                             {% for livre in user.livres %}
+
+                                                     <td class="td_livre">
+                                                     <a href="{{path('livre_livre',{'id' : livre.id })}}">
+                                                         {% if livre.imageLivre is not null %}
+                                                             <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                         {% else %}
+                                                             <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">
+                                                         {% endif %} <br/>
+                                                         {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
+                                                     </td>
+
+                                             {% endfor %}
+                                             </tr>
+                                     </table>
+
+                                     
+
+
+                     </center>
+                     </fieldset>
+                      {% endif %}
+                      {% if user.listeCommande is not empty %}                          
+                      <legend>Commandes à valider</legend>
+                                    <fieldset>
+                                    <center>
+
+						
 
 						<table class="tab_livre">
 							<tr>
-							<!-- boucle sur l'ensemble des livres de la base de données -->
-							{% for livre in user.livres %}
+							
+							{% for commande in user.listeCommande %}
 
 								<td class="td_livre">
-								<a href="">
-                                                                    {% if livre.imageLivre is not null %}
-                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+								<a href="{{path('livre_demande',{'id' : commande.id })}}">
+                                                                    {% if commande.livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(commande.livre.imageLivre.getwebPath()) }}">
                                                                     {% endif %} <br/>
-                                                                    {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
+                                                                    {{ commande.livre.titre }}<br/></a>
 								</td>
 
 							{% endfor %}
 							</tr>
 						</table>
 
-						{% endif %}
+						
 
 					</table>
 				</center>
-{% endblock %}
+                                </fieldset>  
+                      {% endif %}                              
+{% endblock %}  

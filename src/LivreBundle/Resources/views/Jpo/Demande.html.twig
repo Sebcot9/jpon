@@ -1,0 +1,36 @@
+
+{% extends "base.html.twig"%}
+{% block body %}
+			<div class="div_livre"> 
+				<center>
+				<table class="tab_livre">
+					
+                                        <tr>
+                                            <td>
+							<center>
+								<h3>Demande d'&eacute;change de {{ commande.demandeur.username }}</h3>
+							</center>
+                                            </td>
+                                            <td>
+							<h4> R&eacute;sum&eacute; de la commande: </h4>
+							<p class="resume">
+                                                                {{ commande.livre.titre}}
+                                                        </p>
+                                                        
+                                            </td>
+                                            <td>								    
+                                                {% if commande.livre.imageLivre is not null %}
+                                                    <img class="img_livre" src="{{ asset(commande.livre.imageLivre.getwebPath()) }}">
+                                                {% else %}
+                                                    <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">
+                                                {% endif %} <br/>
+                                            </td>
+                                            <td>
+                                                <a style="text-decoration: none" href="{{path('livre_accept',{'id' : commande.id })}}"><input type="button" value="Accepter"/></a>
+                                            </td>
+					</tr>
+				</table>
+				</center>
+                                                        
+			</div>
+{% endblock %}
