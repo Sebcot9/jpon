@@ -5,15 +5,15 @@
 
 			<br/> <br/>
        {% if app.session.flashBag.has('notice') %}
-        <div class="alert alert-success">
-            {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-notice">
+            {% for msg in app.session.flashBag.get('notice') %}
                 {{ msg }}
             {% endfor %}
         </div>
         {% endif %}
         <div classe="livres_ajoutes">
             <h2> Les derniers livres ajout&eacute;es </h2>
-
+            <!--<a href="{{path('livre_search')}}">Chercher un livre</a>-->
 				<center>
 					<table class="tab_livre">
 						{% for column in livres|batch(4,null) %}

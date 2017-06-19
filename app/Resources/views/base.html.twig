@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <meta charset="UTF-8" />
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% stylesheets 'css/style.css' %}<link rel="stylesheet" type="text/css" href={{ asset_url }}/>{% endstylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    {% block javascripts %}{% endblock %}
         <div class="conteneur">
 			<img class="baniere" src={{asset('Images/Baniere_02.png')}}/>
 			<div class="header">
@@ -48,6 +50,6 @@
 		     </div>
         {% block body %}{% endblock %}
         </div>
-        {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

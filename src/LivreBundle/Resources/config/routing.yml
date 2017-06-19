@@ -26,9 +26,13 @@ livre_echange:
     path: /echange/{id}
     defaults: { _controller: LivreBundle:Default:echange }
     
+livre_search:
+    path: /recherche
+    defaults: { _controller: LivreBundle:Default:recherche }
+    
 livre_suppr:
     path: /livre/{id}
-    defaults: { _controller: LivreBundle:suppr }
+    defaults: { _controller: LivreBundle:Default:suppr }
     
 livre_demande:
     path: /demande/{id}

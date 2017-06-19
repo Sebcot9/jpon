@@ -1,6 +1,11 @@
 {% extends "base.html.twig" %}
 {% block body %}
-			
+			{% block javascript %}
+                            <script>
+                                var request;
+                                
+                            </script>
+                        {% endblock %}
 			<br/> <br/>
 
 			<center>
@@ -9,11 +14,13 @@
 						<form>
 							<tr> 
 								<td>
+                                                                    <form id="foo" action="{{ path('livre_search') }}">
 									<label for="titre">Titre *</label>
-									<input name='titre' id='titre'> </input>
+									<input name='titre' id='titre' />
 
 									
-									<input type="submit" id="recherche" value="Rechercher">
+									<input type="submit" id="recherche" value="Rechercher" />
+                                                                    </form>
 								</td>
 							</tr>
 						</form>
@@ -25,8 +32,23 @@
 
 			<center>
 				<div class="result">
-					<table>
-
+					<table class="tab_livre">
+						{% for column in livres|batch(4,null) %}
+                                                <tr>
+                                                    {% for livre in column %}
+							<td class="td_livre">
+                                                                    <a href="{{path('livre_livre',{'id' : livre.id })}}">
+                                                                    {% if livre.imageLivre is not null %}
+                                                                        <img class="img_livre" src="{{ asset(livre.imageLivre.getwebPath()) }}">
+                                                                    {% else %}
+                                                                        <img class="img_livre" src="{{ asset('Images/uploads/img/manquant.png') }}">               
+                                                                    {% endif %} <br/>
+                                                                    {{ livre.titre }}<br/> {{ livre.auteur }}, {{ livre.editeur }}</a>
+								</td>
+							</td>
+                                                    {% endfor %}
+						</tr>
+                                                {% endfor %}
 					</table>
 				</div>
 			</center>

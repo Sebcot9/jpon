@@ -75,14 +75,29 @@ class DefaultController extends Controller
         return $this->render('UserBundle:Profile:show.html.twig');
     }
     
+    public function pagerechercheAction(Request $request)
+    {
+        
+           /* $title = $request->request->get('titre');            
+            $em = $this->getDoctrine()->getManager();
+            $livres = $em->getRepository('LivreBundle:Livre')->findByTitleLike($title);*/
+        
+
+            return $this->render('LivreBundle:Jpo:Recherche.html.twig');
+    }
+    
     public function rechercheAction(Request $request)
     {
-        $title = $request->request->get("titre");
-        $em = $this->getDoctrine()->getManager();
-        $livres = $em->getRepository('LivreBundle:Livre')->findByTitleLike($title);
-        return $this->render('LivreBundle:Jpo:Recherche.html.twig', array('livres' => $livres,));
+        
+            $title = $request->request->get('titre');            
+            $em = $this->getDoctrine()->getManager();
+            $livres = $em->getRepository('LivreBundle:Livre')->findByTitleLike($title);
+        
+
+            return $this->render('LivreBundle:Jpo:Recherche.html.twig', array('livres' => $livres,));
     }
 
+    
     public function proposAction()
     {
         return $this->render('LivreBundle:Jpo:A_Propos.html.twig');

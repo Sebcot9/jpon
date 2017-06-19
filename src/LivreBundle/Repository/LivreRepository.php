@@ -32,9 +32,9 @@ class LivreRepository extends \Doctrine\ORM\EntityRepository
     
     public function findByTitleLike($title){
                 $qb = $this->createQueryBuilder('l');
-                $qb->where('l.title LIKE :user')
+                $qb->where('l.titre LIKE :title')
                 ->setParameter('title', $title)
-                ->orderBy('l.date_ajout', 'DESC');
+                ->orderBy('l.dateAjout', 'DESC');
                 $this->joinImage($qb);
                 
                 return $qb->getQuery()->getResult();
