@@ -19,10 +19,10 @@ class AppKernel extends Kernel
             
             new LivreBundle\LivreBundle(),
             new UserBundle\UserBundle(),
-            
+            //new Maxmind\Bundle\GeoipBundle\MaxmindGeoipBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Maxmind\Bundle\GeoipBundle\MaxmindGeoipBundle(),
+            
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
